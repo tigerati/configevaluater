@@ -40,4 +40,14 @@ def main(argv: Optional[List[str]] = None) -> int:
         print(f"configevluater: cannot read {args.file}: {error}", file=sys.stderr)
         return 2
 
+    all_findings = scan(settings)
+    minimum = SEVERITY_ORDER[args.severity]
+    displayed = [item for item in all_findings if SEVERITY_ORDER[item.severity] >= minimum]
+    output = render_json(args.file, displayed) if args.format == "json" else render_text(args.file, displayed)
+    print(output)
+
+    if args.fail_on:
+        threshold = SEVERITY_ORDER[args.fail_on]
+        if any(SEVERITY_ORDER[item.severity] >= threshold for item in all_findings):
+            return 1
     return 0
