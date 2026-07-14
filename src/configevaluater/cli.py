@@ -6,9 +6,9 @@ from pathlib import Path
 from typing import List, Optional
 
 from configevaluater import __version__
-from src.configevaluater.parser import EnvParseError, parse_env_file
-from src.configevaluater.reporter import render_json, render_text
-from src.configevaluater.rules import SEVERITY_ORDER, scan
+from configevaluater.parser import EnvParseError, parse_env_file
+from configevaluater.reporter import render_json, render_text
+from configevaluater.rules import SEVERITY_ORDER, scan
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -34,10 +34,10 @@ def main(argv: Optional[List[str]] = None) -> int:
             raise OSError("path is not a regular file")
         settings = parse_env_file(args.file)
     except EnvParseError as error:
-        print(f"configevluater: invalid input: {error}", file=sys.stderr)
+        print(f"configevaluater: invalid input: {error}", file=sys.stderr)
         return 2
     except (OSError, UnicodeError) as error:
-        print(f"configevluater: cannot read {args.file}: {error}", file=sys.stderr)
+        print(f"configevaluater: cannot read {args.file}: {error}", file=sys.stderr)
         return 2
 
     all_findings = scan(settings)

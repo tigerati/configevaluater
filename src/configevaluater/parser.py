@@ -3,7 +3,7 @@
 import re
 from pathlib import Path
 
-from src.configevaluater.models import Setting
+from configevaluater.models import Setting
 
 KEY_PATTERN = re.compile(r"^[A-Za-z_][A-Za-z0-9_]*$")
 
@@ -60,4 +60,3 @@ def _remove_matching_quotes(value: str, line: int) -> str:
         return value[1:-1]
 
     return value
-

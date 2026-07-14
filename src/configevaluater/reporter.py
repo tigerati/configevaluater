@@ -4,7 +4,7 @@ import json
 from collections import Counter
 from pathlib import Path
 
-from src.configevaluater.models import Finding
+from configevaluater.models import Finding
 
 
 def render_text(path: Path, findings: list[Finding]) -> str:

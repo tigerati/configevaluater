@@ -3,7 +3,7 @@
 from collections import Counter
 from collections.abc import Iterable
 
-from src.configevaluater.models import Finding, Setting
+from configevaluater.models import Finding, Setting
 
 TRUE_VALUES = {"1", "true", "yes", "on", "enabled"}
 FALSE_VALUES = {"0", "false", "no", "off", "disabled"}
@@ -107,4 +107,3 @@ def _looks_like_url_key(key: str) -> bool:
 
 def _is_local_url(value: str) -> bool:
     return value.startswith(("http://localhost", "http://127.0.0.1", "http://[::1]"))
-
