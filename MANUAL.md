@@ -84,7 +84,7 @@ Configuration values are deliberately omitted from output.
 
 ## Complete example
 
-Given this fictional file:
+The repository includes `examples/insecure.env`. Its first three settings are:
 
 ```dotenv
 DEBUG=true
@@ -92,10 +92,10 @@ HOST=0.0.0.0
 SECRET_KEY=changeme
 ```
 
-Run:
+From the project directory, run:
 
 ```bash
-configevaluater example.env
+configevaluater examples/insecure.env
 ```
 
 ConfigEvaluater reports debug mode, the placeholder secret, and the combined risk
